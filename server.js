@@ -2,13 +2,14 @@ import express from "express";
 import mongoose from "mongoose";
 import Cards from "./dbCards.js";
 import Cors from 'cors';
+require("dotenv").config();
 
 //app config
 const app = express()
 const port = process.env.PORT || 8081
 const accessCode = process.env.CLASTER_ACCESS_PIN;
 const adminName = process.env.ADMIN_NAME;
-const connection_url = `mongodb+srv://matt-admin:U88tWXTqbrqvzQeC@cluster0.14vum.mongodb.net/tinderdb?retryWrites=true&w=majority`
+const connection_url = `mongodb+srv://${adminName}:${accessCode}@cluster0.14vum.mongodb.net/tinderdb?retryWrites=true&w=majority`
 
 
 
